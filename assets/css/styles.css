@@ -227,3 +227,35 @@ body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Tex
 .hero-video-copy .eyebrow{font-size:.85rem;letter-spacing:.18em}
 
 .hero-video .hero-subtitle{font-size:1.08rem;line-height:1.7;max-width:36rem}
+
+/* FINAL: Unify all buttons to Liquid Glass CTA style */
+a.btn, button.btn, .btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.75rem 1.5rem;border-radius:9999px;font-size:.875rem;font-weight:600;
+  text-decoration:none;cursor:pointer;
+  border:1px solid var(--vf-green);
+  background:rgba(52,211,153,.10);
+  color:#86efac;
+  transition:background .16s ease,border-color .16s ease,color .16s ease;
+}
+.btn:hover{background:rgba(52,211,153,.20)}
+
+/* Keep variants mapped to the same glassy style */
+a.btn.btn-primary, button.btn.btn-primary, .btn.btn-primary{
+  border-color:var(--vf-green);
+  background:rgba(52,211,153,.10);
+  color:#86efac;
+  box-shadow:none;
+}
+a.btn.btn-primary:hover, button.btn.btn-primary:hover, .btn.btn-primary:hover{
+  background:rgba(52,211,153,.20);
+}
+
+a.btn.btn-ghost, button.btn.btn-ghost, .btn.btn-ghost{
+  border-color:var(--vf-green);
+  background:rgba(52,211,153,.10);
+  color:#86efac;
+}
+a.btn.btn-ghost:hover, button.btn.btn-ghost:hover, .btn.btn-ghost:hover{
+  background:rgba(52,211,153,.20);
+}
