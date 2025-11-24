@@ -14,44 +14,276 @@
   <meta property="og:description" content="Futures prop firm evaluations with clear rules, tight risk, and fast payouts.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/velocity-funds-orbital-icon.svg">
-  <link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css">
   <script defer src="assets/js/main.js"></script>
 </head>
 <body class="bg-black text-white">
 
-<p>coming soon.</p>
+<header class="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur border-b border-neutral-800">
+  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="./assets/images/velocity-funds-orbital-icon.svg" alt="Velocity Funds" class="h-8 w-8" />
+      <span class="text-white font-semibold text-lg">Velocity Funds</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="rules.html">Rules</a>
+      <a class="nav-link" href="faq.html">FAQ</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link" href="careers.html">Careers</a>
+      <a class="btn btn-primary inline-flex items-center gap-2" href="https://discord.gg/Gdgn4PNA" target="_blank" rel="noopener noreferrer">
+        <img src="./assets/images/discord.svg" alt="" class="h-5 w-5" />
+        Join Discord
+      </a>
+      <a class="btn btn-primary" href="#">Login</a>
+    </nav>
+    <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center rounded-lg border border-neutral-700 px-3 py-2 text-white">
+      <span class="sr-only">Toggle menu</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="md:hidden hidden border-t border-neutral-800">
+    <div class="px-4 py-3 grid gap-3 bg-neutral-950">
+      <a class="mobile-link" href="index.html">Home</a>
+      <a class="mobile-link" href="rules.html">Rules</a>
+      <a class="mobile-link" href="faq.html">FAQ</a>
+      <a class="mobile-link" href="about.html">About</a>
+      <a class="mobile-link" href="contact.html">Contact</a>
+      <a class="mobile-link" href="careers.html">Careers</a>
+      <a class="mobile-link" href="terms-of-use.html">Terms & Conditions</a>
+      <a class="btn btn-primary w-full inline-flex items-center justify-center gap-2 text-center" href="https://discord.gg/Gdgn4PNA" target="_blank" rel="noopener noreferrer">
+        <img src="./assets/images/discord.svg" alt="" class="h-5 w-5" />
+        Join Discord
+      </a>
+      <a class="btn btn-primary w-full text-center" href="#">Login</a>
+    </div>
+  </div>
+  </div>
+  </div>
+</header>
+
+<!-- Program Rules – Fully Simulated Environment -->
+<section id="program-rules" class="mx-auto max-w-5xl px-4 py-16">
+  <h2 class="section-title">Program Rules in a Fully Simulated Environment</h2>
+  <p class="section-subtitle">
+    These rules apply to all Velocity Starter evaluations and Velocity Funded simulated accounts operated by
+    <strong>Velocity Funds LLC</strong>.
+  </p>
+
+  <div class="mt-10 space-y-8 text-sm leading-relaxed text-neutral-200">
+
+    <!-- 1. Discipline & Consistency -->
+    <article class="panel space-y-3">
+      <h3 class="text-base font-semibold text-white">1. Discipline, Pace & Consistency</h3>
+      <p class="text-neutral-300">
+        Velocity Funds is built around professional risk behavior, not one-off lucky runs. There is no fixed time limit
+        to reach your profit target as long as your subscription is active, but you must respect the minimum trading
+        days shown in the rules table above.
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-neutral-300">
+        <li>Your results must show <strong>consistent execution</strong>, not extreme single-day spikes.</li>
+        <li>During the evaluation, no single day’s net profit may exceed <strong>40% of your total evaluation profits</strong>.</li>
+        <li>Accounts may be reviewed or disqualified if trading behavior resembles gambling, martingale,
+          or other non-professional patterns.</li>
+      </ul>
+    </article>
+
+    <!-- 2. Trading Behaviour & Rules -->
+    <article class="panel space-y-3">
+      <h3 class="text-base font-semibold text-white">2. Trading Behaviour & Rules</h3>
+      <p class="text-neutral-300">
+        All trading must be conducted fairly and in line with how a professional futures desk would operate.
+        Any attempt to game the environment or exploit technical limitations may result in account closure.
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-neutral-300">
+        <li>No intentional latency, arbitrage, or platform-exploit strategies.</li>
+        <li>No mirroring, copy trading, or signal-sharing between multiple Velocity accounts for the purpose
+          of bypassing rules.</li>
+        <li>No fully automated high-frequency systems designed to exploit tick data or infrastructure instead of
+          market opportunity.</li>
+        <li>All positions must comply with the <strong>contract limits, risk limits, and product restrictions</strong>
+          shown on this page and inside your dashboard.</li>
+        <li>Holding into restricted events or trading behavior that contradicts broker or exchange rules may result in
+          disqualification, even if other metrics are respected.</li>
+      </ul>
+    </article>
+
+    <!-- 3. Trading Instruments -->
+    <article class="panel space-y-3">
+      <h3 class="text-base font-semibold text-white">3. Trading Instruments</h3>
+      <p class="text-neutral-300">
+        Velocity Funds currently operates in a <strong>fully simulated futures environment</strong> using our
+        supported brokerage and technology partners (for example, Rithmic). Only products made available in your
+        platform and account are permitted.
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-neutral-300">
+        <li>You may trade the exchange-traded futures contracts and micros enabled in your login.</li>
+        <li>Spot FX, crypto, options, CFDs, and any product not explicitly enabled in your account are not permitted.</li>
+        <li>All positions must be closed in accordance with exchange hours and any overnight/holiday restrictions
+          communicated by Velocity Funds or its partners.</li>
+      </ul>
+    </article>
+
+    <!-- 4. Account Credentials -->
+    <article class="panel space-y-3">
+      <h3 class="text-base font-semibold text-white">4. Account Credentials & Usage</h3>
+      <p class="text-neutral-300">
+        Every evaluation and funded login is intended for <strong>a single individual trader</strong>. Sharing access
+        or operating as an undeclared group harms both the firm and other traders.
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-neutral-300">
+        <li>Do not share your dashboard or platform credentials with anyone.</li>
+        <li>You are responsible for all trades placed under your credentials, whether placed by you or someone you
+          allowed to access your account.</li>
+        <li>Velocity Funds may suspend or close accounts that show signs of credential sharing, multi-user activity,
+          or other security risks.</li>
+      </ul>
+    </article>
+
+    <!-- 5. Resets & Breaches -->
+    <article class="panel space-y-3">
+      <h3 class="text-base font-semibold text-white">5. Breaches, Violations & Resets</h3>
+      <p class="text-neutral-300">
+        Your account is considered breached if you violate any of the core risk parameters or behavioural rules.
+        The live rules table above is the source of truth for current limits.
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-neutral-300">
+        <li>Breaching the <strong>Max End-of-Day Trailing Loss</strong> or <strong>Maximum Daily Loss</strong>
+          displayed for your account will fail the account.</li>
+        <li>Exceeding your maximum allowed contracts/micros will result in a breach.</li>
+        <li>Serious behavioural violations (for example platform abuse, prohibited arbitrage, or account sharing)
+          may result in immediate closure with no eligibility for resets or rewards.</li>
+        <li>Reset options, when available, will be shown clearly in your client dashboard and may require a reset fee
+          or new evaluation purchase.</li>
+      </ul>
+    </article>
+
+    <!-- 6. Rewards & Payouts -->
+    <article class="panel space-y-3">
+      <h3 class="text-base font-semibold text-white">6. Rewards, Dynamic Caps & Payout Structure</h3>
+      <p class="text-neutral-300">
+        All Velocity Funded accounts remain <strong>simulated</strong>. Rewards are paid based on performance in the
+        simulated environment, subject to review of risk, behavior, and consistency.
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-neutral-300">
+        <li>Reward cycles are typically every <strong>5 active trading days</strong> with an
+          <strong>80% reward split</strong>, as shown in the rules table.</li>
+        <li>Funded accounts are subject to a <strong>dynamic reward cap</strong> per payout cycle.
+          The current caps for each account size are reflected in the Dynamic Reward Cap table on this page.</li>
+        <li>
+          For the <strong>$50K Velocity Starter program</strong>, traders may operate under either:
+          <ul class="list-disc pl-5 mt-1 space-y-1">
+            <li>our standard dynamic reward schedule, or</li>
+            <li>a flat <strong>$1,000 reward cap per cycle</strong>, selectable inside the dashboard.</li>
+          </ul>
+          The dashboard clearly displays which mode (Dynamic or $1,000 Cap) is active for your account.
+        </li>
+        <li>Rewards are only paid on accounts that have respected all rules, including the consistency rule and
+          contract limits. Violations discovered during review may void a pending reward.</li>
+        <li>Velocity Funds may adjust reward schedules, caps, or splits over time. Any changes will be communicated
+          on this page and/or in your dashboard and will only apply going forward.</li>
+      </ul>
+      <p class="text-neutral-400 text-xs mt-2">
+        Note: All activity takes place in a simulated environment. No live market funds are deposited to or withdrawn
+        from any broker account in your name as a result of participating in Velocity Starter or Velocity Funded
+        programs.
+      </p>
+    </article>
+
+    <!-- 7. “Live” / Velocity Funded Stage -->
+    <article class="panel space-y-3">
+      <h3 class="text-base font-semibold text-white">7. Velocity Funded (“Live”) Stage</h3>
+      <p class="text-neutral-300">
+        When you pass the evaluation and move into the Velocity Funded stage, you are still trading a simulated
+        account. Velocity Funds may use your performance to inform internal risk allocation, but you have no claim on
+        specific firm capital or positions.
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-neutral-300">
+        <li>All risk parameters (trailing loss, contract limits, etc.) continue to apply in the funded stage.</li>
+        <li>Failure to respect rules in the funded stage can result in account closure and forfeiture of pending rewards.</li>
+        <li>Velocity Funds reserves the right to end, pause, or modify a funded account at its discretion in order to
+          manage firmwide risk.</li>
+      </ul>
+    </article>
+
+    <!-- 8. Inactivity -->
+    <article class="panel space-y-3">
+      <h3 class="text-base font-semibold text-white">8. Inactivity & Account Closure</h3>
+      <p class="text-neutral-300">
+        To keep the environment efficient, inactive accounts may be closed so resources can be reallocated to
+        active traders.
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-neutral-300">
+        <li>If no trades are placed for an extended period (for example, 30 consecutive calendar days),
+          your evaluation or funded account may be marked inactive and closed.</li>
+        <li>Closed inactive accounts are not eligible for rewards. A new evaluation purchase may be required
+          to participate again.</li>
+        <li>Specific inactivity windows and processes may be updated over time and communicated via email,
+          dashboard notifications, or this page.</li>
+      </ul>
+    </article>
+
+    <!-- 9. IP Address & Multiple Accounts -->
+    <article class="panel space-y-3">
+      <h3 class="text-base font-semibold text-white">9. IP Address, Devices & Multiple Accounts</h3>
+      <p class="text-neutral-300">
+        Velocity Funds monitors logins and trade flow to protect the integrity of the programs.
+        Activity that appears coordinated or abusive may lead to review or closure of related accounts.
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-neutral-300">
+        <li>Multiple accounts accessing from the same IP address or device may be reviewed for copy trading
+          or other prohibited coordination.</li>
+        <li>Using VPNs, VPSs, or remote servers is allowed, but attempting to hide identity or circumvent
+          restrictions is not.</li>
+        <li>Velocity Funds may merge, close, or restrict accounts that appear to be used collectively to bypass
+          contract limits, reward caps, or other rules.</li>
+      </ul>
+      <p class="text-neutral-400 text-xs mt-2">
+        This Rules section is a high-level summary of how the Velocity Starter and Velocity Funded programs operate.
+        It should be read together with the <a href="terms-of-use.html" class="underline text-emerald-300">
+        Terms &amp; Conditions</a> and <a href="risk-disclosure.html" class="underline text-emerald-300">
+        Risk Disclosure</a>, which govern your use of the platform.
+      </p>
+    </article>
+
+  </div>
+</section>
+
 
 <footer class="border-t border-neutral-800 mt-24">
   <div class="mx-auto max-w-7xl px-4 py-12 grid md:grid-cols-4 gap-8">
     <div>
-      <div class="flex items-center gap-2 mb-3">
+      <a href="index.html" class="flex items-center gap-2 mb-3">
         <img src="./assets/images/velocity-funds-orbital-icon.svg" class="h-8 w-8" alt="Velocity Funds">
         <span class="text-white font-semibold">Velocity Funds</span>
-      </div>
+      </a>
       <p class="text-neutral-400 text-sm leading-6">Accelerating traders with transparent rules, disciplined risk, and fast, reliable payouts.</p>
     </div>
     <div>
       <h4 class="footer-heading">Funding</h4>
       <ul class="footer-links">
-        <li><a href="#">Rules</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Leaderboard</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="#">Login</a></li>
       </ul>
     </div>
     <div>
       <h4 class="footer-heading">Company</h4>
       <ul class="footer-links">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Careers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="careers.html">Careers</a></li>
       </ul>
     </div>
     <div>
       <h4 class="footer-heading">Legal</h4>
       <ul class="footer-links">
-        <li><a href="#">Terms</a></li>
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Risk Disclosure</a></li>
+        <li><a href="terms-of-use.html">Terms & Conditions</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="risk-disclosure.html">Risk Disclosure</a></li>
       </ul>
     </div>
   </div>

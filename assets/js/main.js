@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const planFundedBtn = document.getElementById("planFunded");
   const sizeRow = document.getElementById("sizeRow");
   const stageTitle = document.getElementById("stageTitle");
-  const stageSubtitle = document.getElementById("stageSubtitle");
   const stageSubcopy = document.getElementById("stageSubcopy");
   const priceDisplay = document.getElementById("priceDisplay");
   const sizeSummary = document.querySelector('[data-summary="size"]');
@@ -180,13 +179,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const STAGE_COPY = {
     starter: {
-      titleHtml: 'Evaluation Stage <span class="muted">(Starter)</span>',
-      subtitle: "Velocity Starter: Evaluation Stage Accounts",
+      titleHtml:
+        'Velocity Starter: <span class="muted">Evaluation Stage Accounts</span>',
       subcopy: "Reward Cycles: Every 5 trading days at 80% split",
     },
     funded: {
-      titleHtml: 'Funded Stage <span class="muted">(Velocity Funded)</span>',
-      subtitle: "Velocity Funded: Straight-to-Funded Accounts",
+      titleHtml:
+        'Velocity Funded: <span class="muted">Straight-to-Funded Accounts</span>',
       subcopy: "Reward Cycles: Every 5 trading days at 80% split",
     },
   };
@@ -227,7 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const copy = STAGE_COPY[planType];
     if (!copy) return;
     if (stageTitle) stageTitle.innerHTML = copy.titleHtml;
-    if (stageSubtitle) stageSubtitle.textContent = copy.subtitle;
     if (stageSubcopy) stageSubcopy.textContent = copy.subcopy;
   }
 
