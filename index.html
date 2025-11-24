@@ -160,34 +160,46 @@
   <div class="stage-card mt-6" id="stageCard">
     <div class="flex items-center justify-between">
       <div>
-        <div class="font-bold">Evaluation Stage <span class="muted">(Starter)</span></div>
-        <div class="muted text-sm mt-1">Reward Cycles: Every 5 trading days at 80% split</div>
+        <div id="stageTitle" class="font-bold">Evaluation Stage <span class="muted">(Starter)</span></div>
+        <div id="stageSubtitle" class="muted text-sm mt-1">Velocity Starter: Evaluation Stage Accounts</div>
+        <div id="stageSubcopy" class="text-xs text-neutral-400 mt-1">Reward Cycles: Every 5 trading days at 80% split</div>
       </div>
       <div class="hidden lg:block">&nbsp;</div>
     </div>
   </div>
 
   <div class="panel mt-4">
-    <div class="kv" id="kvRows">
-      <div class="k">Profit Target</div><div class="v" data-kv="target">$1,750</div>
-      <div class="k">Max. EOD Trailing Loss</div><div class="v" data-kv="mll">$1,000</div>
-      <div class="k">Maximum Daily Loss</div><div class="v" data-kv="daily">?</div>
-      <div class="k">Minimum Trading Days</div><div class="v" data-kv="days">3</div>
-      <div class="k">Consistency</div><div class="v" data-kv="consistency">35%</div>
-      <div class="k">Contracts</div><div class="v" data-kv="contracts">2</div>
-      <div class="k">Weekly Reward Cap</div><div class="v" data-kv="cap">$5,000</div>
-    </div>
-    <div class="mt-4" id="capSelectWrap">
-      <label class="block text-sm text-neutral-300 mb-2">Reward Cap</label>
-      <select id="capSelectHome" class="input w-full max-w-sm">
-        <option value="5k">$5K Reward Cap</option>
-        <option value="1k">$1K Reward Cap</option>
-      </select>
-    </div>
+    <div id="rulesTable"></div>
     <div class="panel-footer">
-      <div class="muted">Account size: <span class="v" data-summary="size">25k</span></div>
+      <div class="muted">Account size: <span class="v" data-summary="size">$25K</span></div>
       <div class="accent text-xl" id="priceDisplay">$99/mth</div>
       <a href="#" class="btn btn-primary">Buy Challenge</a>
+    </div>
+  </div>
+  <div id="capPopover" class="fixed inset-0 z-40 hidden items-center justify-center bg-black/70 p-4">
+    <div class="absolute inset-0" data-cap-dismiss="true"></div>
+    <div class="relative z-10 w-full max-w-2xl rounded-2xl bg-neutral-900 border border-neutral-800 p-4 shadow-2xl">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <div class="font-semibold text-white">Dynamic Reward Cap</div>
+          <p class="text-xs text-neutral-400 mt-1">Reward cap by payout cycle</p>
+        </div>
+        <button class="text-neutral-400 hover:text-white" data-cap-dismiss="true" aria-label="Close">&times;</button>
+      </div>
+      <div class="mt-4 overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="text-neutral-400 text-xs uppercase">
+            <tr>
+              <th class="py-2 text-left font-semibold">Account Size</th>
+              <th class="py-2 text-left font-semibold">First Reward</th>
+              <th class="py-2 text-left font-semibold">Second Reward</th>
+              <th class="py-2 text-left font-semibold">Third Reward</th>
+              <th class="py-2 text-left font-semibold">Fourth Reward onwards</th>
+            </tr>
+          </thead>
+          <tbody class="text-neutral-200" data-cap-rows></tbody>
+        </table>
+      </div>
     </div>
   </div>
   <p class="muted text-xs mt-2">Current Platform: Rithmic</p>
