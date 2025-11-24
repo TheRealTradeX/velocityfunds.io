@@ -587,4 +587,42 @@ document.addEventListener("DOMContentLoaded", () => {
   renderRules();
   updateSummary();
   updatePrice();
+  // =====================
+  // FAQ accordion behavior
+  // =====================
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  if (faqItems.length > 0) {
+    faqItems.forEach((item) => {
+      const toggle = item.querySelector(".faq-toggle");
+      const content = item.querySelector(".faq-content");
+      const icon = item.querySelector(".faq-icon");
+
+      if (!toggle || !content) return;
+
+      toggle.addEventListener("click", () => {
+        const isOpen = !content.classList.contains("hidden");
+
+        // Optional: close all other FAQ items
+        faqItems.forEach((other) => {
+          if (other === item) return;
+          const otherContent = other.querySelector(".faq-content");
+          const otherIcon = other.querySelector(".faq-icon");
+          if (!otherContent) return;
+          otherContent.classList.add("hidden");
+          if (otherIcon) otherIcon.textContent = "+";
+        });
+
+        // Toggle this item
+        if (isOpen) {
+          content.classList.add("hidden");
+          if (icon) icon.textContent = "+";
+        } else {
+          content.classList.remove("hidden");
+          if (icon) icon.textContent = "–";
+        }
+      });
+    });
+  }
+
 });
