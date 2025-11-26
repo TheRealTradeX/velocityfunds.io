@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       [
         { mode: "dynamic", label: "Dynamic" },
-        { mode: "cap", label: "$1,000 Payout Cap" },
+        { mode: "cap", label: "$1,000" },
       ].forEach((option) => {
         const btn = document.createElement("button");
         btn.type = "button";
