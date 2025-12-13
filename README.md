@@ -1,1 +1,1 @@
-# VelocityFunds.io
+# velocityfunds.io
