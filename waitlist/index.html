@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Velocity Funds — Private Beta Waitlist</title>
+  <meta name="description" content="Request an invite to the Velocity Funds private beta waitlist.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-black text-white min-h-screen" style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+<main class="min-h-screen flex items-center justify-center px-4 py-16">
+  <div class="w-full max-w-3xl space-y-10">
+    <div class="flex items-center gap-3">
+      <div class="h-12 w-12 rounded-xl border border-emerald-500/40 bg-emerald-400/10 flex items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+        <img src="../assets/images/velocity-funds-orbital-icon.svg" alt="Velocity Funds" class="h-7 w-7">
+      </div>
+      <div>
+        <p class="text-xs uppercase tracking-[0.22em] text-emerald-400">VELOCITY FUNDS</p>
+        <p class="text-sm text-neutral-400">Invite-only onboarding for disciplined futures traders</p>
+      </div>
+    </div>
+
+    <section class="rounded-2xl border border-neutral-800 bg-neutral-950/90 shadow-[0_24px_80px_rgba(0,0,0,0.65)] p-8 sm:p-10 space-y-8">
+      <div class="space-y-3">
+        <p class="eyebrow">Access Control</p>
+        <h1 class="text-4xl font-semibold leading-tight">Private Beta</h1>
+        <p class="text-neutral-300 text-lg leading-relaxed">
+          Velocity Funds is invite-only while we selectively onboard traders. 
+          Request an invite to join the waitlist and we will contact you as new seats open.
+        </p>
+      </div>
+
+      <div class="grid gap-6">
+        <form id="waitlistForm" class="space-y-3" novalidate>
+          <label for="waitlistEmail" class="text-sm text-neutral-300 font-medium">Email address</label>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <input id="waitlistEmail" name="email" type="email" required autocomplete="email"
+                   class="input w-full sm:flex-1 text-base" placeholder="you@firm.com">
+            <button type="submit" id="waitlistSubmit" class="btn btn-primary w-full sm:w-auto px-6">
+              Request Invite
+            </button>
+          </div>
+          <p class="text-xs text-neutral-500">
+            
+          </p>
+        </form>
+        <div id="waitlistState" class="text-sm text-neutral-400 min-h-[1.5rem]" aria-live="polite"></div>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="card h-full bg-neutral-900/70">
+          <p class="text-neutral-400 text-xs uppercase tracking-[0.18em] mb-2">Onboarding</p>
+          <p class="font-semibold text-white">Selective access only</p>
+          <p class="text-neutral-400 text-sm mt-1">We approve traders in small cohorts to preserve service and risk standards.</p>
+        </div>
+        <div class="card h-full bg-neutral-900/70">
+          <p class="text-neutral-400 text-xs uppercase tracking-[0.18em] mb-2">Follow up</p>
+          <p class="font-semibold text-white">Confirmed receipt</p>
+          <p class="text-neutral-400 text-sm mt-1">You will see confirmation once your email is saved to the waitlist.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("waitlistForm");
+    const emailInput = document.getElementById("waitlistEmail");
+    const submitBtn = document.getElementById("waitlistSubmit");
+    const stateEl = document.getElementById("waitlistState");
+
+    if (!form || !emailInput || !submitBtn || !stateEl) return;
+
+    function setState(kind, message) {
+      stateEl.textContent = message || "";
+      stateEl.className = "text-sm min-h-[1.5rem]";
+      if (kind === "error") stateEl.className += " text-red-400";
+      else if (kind === "success") stateEl.className += " text-emerald-300";
+      else stateEl.className += " text-neutral-400";
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const email = emailInput.value.trim();
+
+      if (!email) {
+        setState("error", "Please enter an email address.");
+        emailInput.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add("opacity-70", "cursor-not-allowed");
+      submitBtn.textContent = "Submitting...";
+      setState("neutral", "Submitting securely...");
+
+      try {
+        const response = await fetch("/api/waitlist", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok) {
+          setState("success", "We received your request. We will reach out as seats open.");
+          submitBtn.textContent = "Requested";
+          emailInput.disabled = true;
+          return;
+        }
+
+        if (response.status === 409) {
+          setState("success", "You are already on the waitlist. We will notify you when we open more spots.");
+        } else {
+          setState("error", data.error || "Unable to save your email right now. Please try again.");
+        }
+      } catch (error) {
+        setState("error", "Network issue. Please try again in a moment.");
+      } finally {
+        if (!emailInput.disabled) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+          submitBtn.textContent = "Request Invite";
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
